@@ -1,0 +1,1 @@
+(()=>{"use strict";jQuery(document).ready((function(){var t;(t=jQuery)(".wsuwp-content-visibility-settings__group-input").on("change",(function(i){t(i.target).closest(".wsuwp-content-visibility-settings__group-list-item").find(".wsuwp-content-visibility-settings__sub-group-list")[0].toggleAttribute("data-readonly")}))}))})();
