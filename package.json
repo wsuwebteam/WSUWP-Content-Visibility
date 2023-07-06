@@ -7,21 +7,21 @@
     "url": "https://github.com/washingtonstateuniversity/wsuwp-content-visibility"
   },
   "scripts": {
-    "start": "wp-scripts start gutenberg/editor.js --output-path=gutenberg/dist/",
-    "build": "wp-scripts build gutenberg/editor.js --output-path=gutenberg/dist/",
+    "start": "wp-scripts start gutenberg/editor.js gutenberg/settings-page.js --output-path=gutenberg/dist/",
+    "build": "wp-scripts build gutenberg/editor.js gutenberg/settings-page.js --output-path=gutenberg/dist/",
     "check-engines": "wp-scripts check-engines"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^16.1.0",
+    "@wordpress/scripts": "^26.7.0",
+    "autoprefixer": "^6.2.3",
     "grunt": "~1.0.1",
-    "grunt-phpcs": "^0.4.0",
-    "grunt-jscs": "^2.8.0",
-    "grunt-contrib-jshint": "~1.0.0",
-    "grunt-contrib-uglify": "~1.0.0",
+    "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-csslint": "^1.0.0",
     "grunt-contrib-cssmin": "~1.0.0",
-    "grunt-postcss": "^0.8.0",
-    "autoprefixer": "^6.2.3",
-    "grunt-contrib-clean": "^1.0.0"
+    "grunt-contrib-jshint": "~1.0.0",
+    "grunt-contrib-uglify": "~1.0.0",
+    "grunt-jscs": "^2.8.0",
+    "grunt-phpcs": "^0.4.0",
+    "grunt-postcss": "^0.8.0"
   }
 }

@@ -5,6 +5,7 @@ class Scripts {
 	public static function register_block_editor_assets() {
 
 		$editor_asset = include Plugin::get( 'plugin_dir' ) . 'gutenberg/dist/editor.asset.php';
+		$settings_page_asset = include Plugin::get( 'plugin_dir' ) . 'gutenberg/dist/settings-page.asset.php';
 
 		wp_register_script(
 			'wsuwp-plugin-content-visibility-editor-scripts',
@@ -18,6 +19,21 @@ class Scripts {
 			Plugin::get( 'plugin_url' ) . 'gutenberg/dist/editor.css',
 			array(),
 			$editor_asset['version']
+		);
+
+
+		wp_register_script(
+			'wsuwp-plugin-content-visibility-settings-page-scripts',
+			Plugin::get( 'plugin_url' ) . 'gutenberg/dist/settings-page.js',
+			$settings_page_asset['dependencies'],
+			$settings_page_asset['version']
+		);
+
+		wp_register_style(
+			'wsuwp-plugin-content-visibility-settings-page-styles',
+			Plugin::get( 'plugin_url' ) . 'gutenberg/dist/settings-page.css',
+			array(),
+			$settings_page_asset['version']
 		);
 
 	}

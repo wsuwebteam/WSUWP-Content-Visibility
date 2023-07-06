@@ -35,6 +35,7 @@ class Plugin {
 		
 		require_once __DIR__ . '/api.php';
 		require_once __DIR__ . '/scripts.php';
+		require_once __DIR__ . '/settings-page.php';
 
 	}
 

@@ -1,0 +1,33 @@
+.wsuwp-content-visibility-settings {
+  &__group {
+    margin-bottom: 1.5rem;
+  }
+
+  &__group-list {
+  }
+
+  &__group-list-item {
+  }
+
+  &__sub-group-list {
+    margin-left: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  &__sub-group-list-item {
+  }
+
+  &__group-input {
+  }
+
+  &__ad-group-input {
+  }
+
+  [data-readonly] {
+    pointer-events: none;
+  }
+
+  [data-readonly] &__ad-group-input {
+    background-color: #f0f0f1;
+  }
+}
