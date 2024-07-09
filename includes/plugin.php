@@ -33,10 +33,11 @@ class Plugin {
 
 	public static function init() {
 		
+		require_once __DIR__ . '/guest-user.php';
 		require_once __DIR__ . '/api.php';
 		require_once __DIR__ . '/scripts.php';
 		require_once __DIR__ . '/settings-page.php';
-
+		
 	}
 
 }

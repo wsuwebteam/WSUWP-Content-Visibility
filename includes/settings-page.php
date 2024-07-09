@@ -189,23 +189,23 @@ class Content_Visibility_Settings {
     public static function process_content_visibility_permissions( $allowed, $user_id, $allowed_groups ) {
         
         $user_ad_data = get_user_meta( $user_id, '_wsuwp_ad_data', true );
-        $users_groups = $user_ad_data['memberof'];
+        $users_groups = $user_ad_data['memberof'];        
 
-        if( is_array( $user_ad_data ) && isset( $user_ad_data['user_type'] ) && $user_ad_data['user_type'] === 'nid' ){            
-
+        if( is_array( $user_ad_data ) && isset( $user_ad_data['user_type'] ) && $user_ad_data['user_type'] === 'nid' ) {
+            
             // WSU NIDs are allowed and this user has a WSU NID.
             if ( in_array( 'wsu-nid', $allowed_groups, true ) ) {
                 return true;
             }
-
+            
             // Return current state of $allowed if user does not have any groups compare
             if( empty($users_groups) ) {
                 return $allowed;
             }
-
+            
             // Return true if the user belongs to any of the allowed AD groups
             $default_group_ids = array_column( self::$default_groups, 'id' );
-            $content_visibility_settings = get_option( self::$option_title, array() );
+            $content_visibility_settings = get_option( self::$option_title, array() );           
             
             foreach ($allowed_groups as $group_id) {
 
@@ -227,8 +227,8 @@ class Content_Visibility_Settings {
                     }        
                 }
 
-                $intersected_groups = array_intersect( $users_groups, $ad_groups );
-                        
+                $intersected_groups = array_intersect( $users_groups, $ad_groups );                        
+                
                 if( ! empty ($intersected_groups ) ) {
                     return true;
                 }
