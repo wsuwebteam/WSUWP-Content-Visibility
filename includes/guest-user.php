@@ -72,7 +72,7 @@ class Guest_User {
     public static function add_user_cleanup_cron_interval($schedules) {
 
         $schedules['three_hours'] = array(
-            'interval' => 3 * 60 * 60,
+            'interval' => 3 * 60 * 60,           
             'display' => esc_html__( 'Every Three Hours' ),
         );
            
@@ -83,14 +83,16 @@ class Guest_User {
 
     public static function schedule_user_cleanup_cron(){
 
-        if ( ! wp_next_scheduled ( 'run_user_cleanup' ) ) {
-            wp_schedule_event( time(), 'three_hours', 'run_user_cleanup' );
+        if ( ! wp_next_scheduled ( 'wsu_run_user_cleanup' ) ) {
+            wp_schedule_event( time(), 'three_hours', 'wsu_run_user_cleanup' );
         }
         
     }
 
 
     public static function cleanup_users(){
+
+        require_once ABSPATH . 'wp-admin/includes/ms.php';
 
         $args = array(
             'blog_id' => 0,
@@ -121,7 +123,7 @@ class Guest_User {
 	public static function init() {
 		
         add_action( 'init', __CLASS__ . '::schedule_user_cleanup_cron' );        
-        add_action( 'run_user_cleanup', __CLASS__ . '::cleanup_users' );
+        add_action( 'wsu_run_user_cleanup', __CLASS__ . '::cleanup_users' );
         add_filter('openid-connect-generic-new-user',  __CLASS__ . '::login_as_guest', 10, 2 );
         add_filter('cron_schedules',  __CLASS__ . '::add_user_cleanup_cron_interval', 10, 1 );        
 
